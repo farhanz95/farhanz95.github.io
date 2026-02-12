@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Mohd Farhan Ramli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --accent-color: #16a085;
+            --text-gray: #555;
+            --light-gray: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ddd;
+            line-height: 1.5;
+            color: var(--primary-dark);
+            padding: 40px 0;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            display: flex;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            min-height: 1100px;
+        }
+
+        /* Left Column */
+        .left-col {
+            width: 35%;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 30px 20px;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-title {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 15px;
+            margin-top: 25px;
+            padding-bottom: 5px;
+        }
+
+        .skill-item {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stars {
+            color: var(--accent-color);
+        }
+
+        /* Right Column */
+        .right-col {
+            width: 65%;
+            padding: 40px;
+        }
+
+        .header-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .job-block {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+        }
+
+        .job-company {
+            color: var(--accent-color);
+        }
+
+        .job-location {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .job-tasks {
+            padding-left: 18px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .job-tasks li {
+            margin-bottom: 5px;
+        }
+
+        .contact-person {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            background: #f9f9f9;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .edu-block {
+            margin-bottom: 15px;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .resume-container { box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="left-col">
+        <div class="profile-img-container">
+            <img src="Farhan.jpg" alt="Mohd Farhan Ramli" class="profile-img">
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">📧 farhanz95@gmail.com</div>
+            <div class="contact-item">📍 Kundang Jaya, Rawang, Selangor</div>
+            <div class="contact-item">📞 +6 019 382 4192</div>
+            <div class="contact-item">🔗 linkedin.com/in/mohd-farhan-ramli-7b3b8862</div>
+            <div class="contact-item">💻 github.com/farhanz95</div>
+        </div>
+
+        <h3 class="sidebar-title">Hard Skills</h3>
+        <div class="skill-item">PHP 8.1 / 8.3 <span>★★★★★</span></div>
+        <div class="skill-item">Magento 2.4.7 (Commerce) <span>★★★★★</span></div>
+        <div class="skill-item">REST / GraphQL / SOAP <span>★★★★★</span></div>
+        <div class="skill-item">OpenSearch / Elasticsearch <span>★★★★☆</span></div>
+        <div class="skill-item">Docker (MarkShust) <span>★★★★☆</span></div>
+        <div class="skill-item">MySQL / MariaDB <span>★★★★★</span></div>
+        <div class="skill-item">GTM / GA4 Implementation <span>★★★★★</span></div>
+        <div class="skill-item">Linux (Ubuntu/Nginx) <span>★★★★★</span></div>
+        <div class="skill-item">Git / CI-CD <span>★★★★★</span></div>
+        <div class="skill-item">Laravel 7 / 8 <span>★★★★☆</span></div>
+
+        <h3 class="sidebar-title">Education</h3>
+        <div class="edu-block">
+            <p style="font-weight: 600;">Diploma In Computer Science</p>
+            <p style="font-size: 0.85rem;">Universiti Teknologi Mara</p>
+            <p style="font-size: 0.8rem; opacity: 0.8;">07/2013 - 03/2016</p>
+            <p style="font-size: 0.85rem; margin-top: 5px;">CGPA: 3.44</p>
+        </div>
+
+        <h3 class="sidebar-title">Soft Skills</h3>
+        <ul style="list-style: none; font-size: 0.85rem;">
+            <li>• Technical Leadership</li>
+            <li>• Rapid Problem Solving</li>
+            <li>• Strategic Migration Planning</li>
+            <li>• Cross-team Collaboration</li>
+        </ul>
+    </div>
+
+    <div class="right-col">
+        <header>
+            <h1 class="header-name">MOHD FARHAN RAMLI</h1>
+            <p class="header-title">Senior Software Developer (Adobe Commerce)</p>
+            <p class="summary">
+                Senior Developer with over 8 years of experience in high-traffic e-commerce and government ecosystems. Specialist in Adobe Commerce (Magento 2) architecture, leading large-scale system migrations, enterprise-level API development for mobile platforms, and advanced analytics integration.
+            </p>
+        </header>
+
+        <section>
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <span>Senior Software Developer</span>
+                    <span>03/2025 - Present</span>
+                </div>
+                <div class="job-company">Sistem Televisyen Malaysia Berhad (Wowshop)</div>
+                <div class="job-location">Glenmarie, Shah Alam</div>
+                <ul class="job-tasks">
+                    <li>Key contributor to the core system upgrade from Magento <b>2.4.4 to 2.4.7p5</b>, managing PHP 8.x compatibility testing and troubleshooting search engine configurations within containerized development environments.</li>
+                    <li>Developed an automated "Ghost Order" verification system using Magento standard practice to reconcile payment statuses with <b>iPay88 and Atome</b> gateways.</li>
+                    <li>Architected and implemented a custom <b>Phone Number Login/Registration</b> workflow, including backend mapping and UI development.</li>
+                    <li>Engineered a cron-based automation to enable product pages 3 hours prior to live TV broadcast shows.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <span>Senior Software Developer</span>
+                    <span>01/2024 - 02/2025</span>
+                </div>
+                <div class="job-company">Sistem Televisyen Malaysia Berhad (Wowshop)</div>
+                <div class="job-location">Sri Pentas, Bandar Utama</div>
+                <ul class="job-tasks">
+                    <li>Developed the complete <b>Mobile App API suite</b>, including complex modules for Customer Authentication, Address CRUD, and multi-step Checkout logic.</li>
+                    <li>Integrated regional payment gateways (<b>iPay88, Atome, TNG eWallet</b>) into the mobile checkout API with automated shipping and postcode validation.</li>
+                    <li>Managed the critical <b>GA4 and GTM Migration</b>, implementing custom DataLayer pushes for social logins (Apple/FB/Google) and tracking product engagement.</li>
+                    <li>Designed and refactored the <b>"On-Air" broadcast section</b> on the web homepage, utilizing AJAX for real-time channel updates and dynamic product carousels.</li>
+                    <li>Built enterprise-grade APIs for <b>Product Reviews</b> (with Base64 image uploads) and <b>Q&A management</b>.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <span>Software and Magento Developer</span>
+                    <span>06/2021 - 12/2023</span>
+                </div>
+                <div class="job-company">WOWSHOP Sdn Bhd</div>
+                <div class="job-location">Bangsar, Kuala Lumpur</div>
+                <ul class="job-tasks">
+                    <li>Maintained Magento 2.3.5/2.4.4 Commerce systems and integrated preorder functionality with <b>Oracle ERP</b>.</li>
+                    <li>Implemented TikTok Pixel and Google Tag Manager scripts to optimize marketing ad spend and user tracking.</li>
+                    <li>Supported the migration from Magento Community to Commerce edition, ensuring zero downtime for core retail functions.</li>
+                </ul>
+                <div class="contact-person">Reference: Manu Krishna (Team Lead) - manukrishna688@gmail.com</div>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <span>Software Developer</span>
+                    <span>05/2020 - 06/2021</span>
+                </div>
+                <div class="job-company">MyEG Services Berhad</div>
+                <div class="job-location">Petaling Jaya, Selangor</div>
+                <ul class="job-tasks">
+                    <li>Developed a <b>Vaccine Distribution System (VIMS)</b> using Laravel 7 and built loan management portals with full Unit Testing.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <span>Full Stack Programmer</span>
+                    <span>03/2016 - 05/2020</span>
+                </div>
+                <div class="job-company">Unijaya Resources Sdn Bhd</div>
+                <div class="job-location">Kuala Lumpur</div>
+                <ul class="job-tasks">
+                    <li>Lead Developer for <b>MEDCAST 2.0</b>; managed the full SDLC and ETL migrations for government-linked projects.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
