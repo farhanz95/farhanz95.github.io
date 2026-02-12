@@ -10,14 +10,21 @@
             --primary-dark: #2c3e50;
             --accent-color: #16a085;
             --text-gray: #555;
-            --light-gray: #f4f7f6;
             --white: #ffffff;
         }
 
+        /* Standard Print & Layout Reset */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-print-color-adjust: exact !important; 
+            print-color-adjust: exact !important;         
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
         }
 
         body {
@@ -25,29 +32,34 @@
             background-color: #ddd;
             line-height: 1.5;
             color: var(--primary-dark);
-            padding: 40px 0;
         }
 
-        .resume-container {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Individual Page Container */
+        .resume-page {
+            position: relative;
+            width: 210mm; 
+            height: 296.5mm; /* Slight reduction to prevent blank 3rd page */
+            margin: 20px auto;
             background: var(--white);
             display: flex;
             box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            min-height: 1100px;
+            overflow: hidden;
+            page-break-after: always;
         }
 
-        /* Left Column */
+        /* Sidebar Styling */
         .left-col {
             width: 35%;
             background-color: var(--primary-dark);
             color: var(--white);
-            padding: 30px 20px;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
         }
 
         .profile-img-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .profile-img {
@@ -58,15 +70,13 @@
             object-fit: cover;
         }
 
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
+        .contact-info { margin-bottom: 30px; }
         .contact-item {
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            font-size: 0.82rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            word-break: break-all;
         }
 
         .sidebar-title {
@@ -87,26 +97,23 @@
             align-items: center;
         }
 
-        .stars {
-            color: var(--accent-color);
-        }
-
-        /* Right Column */
+        /* Main Content Styling */
         .right-col {
             width: 65%;
-            padding: 40px;
+            padding: 50px 40px;
         }
 
         .header-name {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: var(--primary-dark);
             line-height: 1.1;
+            text-transform: uppercase;
         }
 
         .header-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--accent-color);
             font-weight: 500;
             margin-bottom: 20px;
@@ -121,29 +128,24 @@
 
         .section-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary-dark);
             text-transform: uppercase;
             border-bottom: 2px solid #eee;
-            margin-bottom: 15px;
-            margin-top: 20px;
+            margin-bottom: 18px;
+            margin-top: 25px;
         }
 
-        .job-block {
-            margin-bottom: 25px;
-        }
-
+        .job-block { margin-bottom: 25px; }
         .job-header {
             display: flex;
             justify-content: space-between;
             font-weight: 700;
+            font-size: 1.05rem;
         }
 
-        .job-company {
-            color: var(--accent-color);
-        }
-
+        .job-company { color: var(--accent-color); font-weight: 600; }
         .job-location {
             font-size: 0.85rem;
             color: #777;
@@ -153,35 +155,34 @@
 
         .job-tasks {
             padding-left: 18px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-gray);
         }
 
-        .job-tasks li {
-            margin-bottom: 5px;
-        }
+        .job-tasks li { margin-bottom: 6px; }
 
         .contact-person {
             font-size: 0.8rem;
-            margin-top: 8px;
-            background: #f9f9f9;
-            padding: 5px;
+            margin-top: 10px;
+            background: #f1f1f1;
+            padding: 8px;
             border-radius: 4px;
-        }
-
-        .edu-block {
-            margin-bottom: 15px;
+            color: #444;
         }
 
         @media print {
-            body { background: none; padding: 0; }
-            .resume-container { box-shadow: none; width: 100%; }
+            body { background: none; }
+            .resume-page {
+                margin: 0;
+                box-shadow: none;
+                border: none;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="resume-container">
+<div class="resume-page">
     <div class="left-col">
         <div class="profile-img-container">
             <img src="Farhan.jpg" alt="Mohd Farhan Ramli" class="profile-img">
@@ -214,19 +215,11 @@
             <p style="font-size: 0.8rem; opacity: 0.8;">07/2013 - 03/2016</p>
             <p style="font-size: 0.85rem; margin-top: 5px;">CGPA: 3.44</p>
         </div>
-
-        <h3 class="sidebar-title">Soft Skills</h3>
-        <ul style="list-style: none; font-size: 0.85rem;">
-            <li>• Technical Leadership</li>
-            <li>• Rapid Problem Solving</li>
-            <li>• Strategic Migration Planning</li>
-            <li>• Cross-team Collaboration</li>
-        </ul>
     </div>
 
     <div class="right-col">
         <header>
-            <h1 class="header-name">MOHD FARHAN RAMLI</h1>
+            <h1 class="header-name">Mohd Farhan Ramli</h1>
             <p class="header-title">Senior Software Developer (Adobe Commerce)</p>
             <p class="summary">
                 Senior Developer with over 8 years of experience in high-traffic e-commerce and government ecosystems. Specialist in Adobe Commerce (Magento 2) architecture, leading large-scale system migrations, enterprise-level API development for mobile platforms, and advanced analytics integration.
@@ -244,14 +237,14 @@
                 <div class="job-company">Sistem Televisyen Malaysia Berhad (Wowshop)</div>
                 <div class="job-location">Glenmarie, Shah Alam</div>
                 <ul class="job-tasks">
-                    <li>Key contributor to the core system upgrade from Magento <b>2.4.4 to 2.4.7p5</b>, managing PHP 8.x compatibility testing and troubleshooting search engine configurations within containerized development environments.</li>
-                    <li>Developed an automated "Ghost Order" verification system using Magento standard practice to reconcile payment statuses with <b>iPay88 and Atome</b> gateways.</li>
-                    <li>Architected and implemented a custom <b>Phone Number Login/Registration</b> workflow, including backend mapping and UI development.</li>
-                    <li>Engineered a cron-based automation to enable product pages 3 hours prior to live TV broadcast shows.</li>
+                    <li>Key contributor to core system upgrades from Magento <b>2.4.4 to 2.4.7p5</b>, managing PHP 8.x compatibility testing and troubleshooting search engine configurations.</li>
+                    <li>Developed automated "Ghost Order" verification systems to reconcile payment statuses with <b>iPay88 and Atome</b> gateways.</li>
+                    <li>Architected and implemented custom <b>Phone Number Login/Registration</b> workflows.</li>
+                    <li>Engineered cron-based automation to enable product pages 3 hours prior to live TV broadcast shows.</li>
                 </ul>
             </div>
 
-            <div class="job-block">
+            <div class="job-block" style="margin-bottom: 0;">
                 <div class="job-header">
                     <span>Senior Software Developer</span>
                     <span>01/2024 - 02/2025</span>
@@ -261,9 +254,32 @@
                 <ul class="job-tasks">
                     <li>Developed the complete <b>Mobile App API suite</b>, including complex modules for Customer Authentication, Address CRUD, and multi-step Checkout logic.</li>
                     <li>Integrated regional payment gateways (<b>iPay88, Atome, TNG eWallet</b>) into the mobile checkout API with automated shipping and postcode validation.</li>
-                    <li>Managed the critical <b>GA4 and GTM Migration</b>, implementing custom DataLayer pushes for social logins (Apple/FB/Google) and tracking product engagement.</li>
-                    <li>Designed and refactored the <b>"On-Air" broadcast section</b> on the web homepage, utilizing AJAX for real-time channel updates and dynamic product carousels.</li>
-                    <li>Built enterprise-grade APIs for <b>Product Reviews</b> (with Base64 image uploads) and <b>Q&A management</b>.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="resume-page">
+    <div class="left-col">
+        <h3 class="sidebar-title">Soft Skills</h3>
+        <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+            <li>• Technical Leadership</li>
+            <li>• Rapid Problem Solving</li>
+            <li>• Strategic Migration Planning</li>
+            <li>• Cross-team Collaboration</li>
+            <li>• Attention to Detail</li>
+            <li>• Adaptability</li>
+        </ul>
+    </div>
+
+    <div class="right-col">
+        <section>
+            <div class="job-block">
+                <ul class="job-tasks">
+                    <li>Managed critical <b>GA4 and GTM Migrations</b>, implementing custom DataLayer pushes for social logins (Apple/FB/Google) and tracking product engagement.</li>
+                    <li>Designed and refactored the <b>"On-Air" broadcast section</b> on the web homepage using AJAX for real-time channel updates.</li>
+                    <li>Built enterprise-grade APIs for <b>Product Reviews</b> (Base64 uploads) and <b>Q&A management</b>.</li>
                 </ul>
             </div>
 
@@ -276,8 +292,8 @@
                 <div class="job-location">Bangsar, Kuala Lumpur</div>
                 <ul class="job-tasks">
                     <li>Maintained Magento 2.3.5/2.4.4 Commerce systems and integrated preorder functionality with <b>Oracle ERP</b>.</li>
-                    <li>Implemented TikTok Pixel and Google Tag Manager scripts to optimize marketing ad spend and user tracking.</li>
-                    <li>Supported the migration from Magento Community to Commerce edition, ensuring zero downtime for core retail functions.</li>
+                    <li>Implemented TikTok Pixel and Google Tag Manager scripts to optimize marketing ad spend.</li>
+                    <li>Supported the migration from Magento Community to Commerce edition with zero downtime.</li>
                 </ul>
                 <div class="contact-person">Reference: Manu Krishna (Team Lead) - manukrishna688@gmail.com</div>
             </div>
@@ -290,7 +306,7 @@
                 <div class="job-company">MyEG Services Berhad</div>
                 <div class="job-location">Petaling Jaya, Selangor</div>
                 <ul class="job-tasks">
-                    <li>Developed a <b>Vaccine Distribution System (VIMS)</b> using Laravel 7 and built loan management portals with full Unit Testing.</li>
+                    <li>Developed <b>Vaccine Distribution System (VIMS)</b> using Laravel 7 and built loan management portals with full Unit Testing.</li>
                 </ul>
             </div>
 
@@ -311,4 +327,3 @@
 
 </body>
 </html>
-
