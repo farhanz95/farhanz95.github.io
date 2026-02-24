@@ -189,6 +189,112 @@
                 border: none;
             }
         }
+
+        .resume-container {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.5;
+            min-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- TOP SECTION STYLES --- */
+        .top-section {
+            background-color: var(--primary-color);
+            padding: 0px;
+            border-radius: 4px;
+        }
+
+        .skills-list {
+            display: flex;               /* This aligns skills horizontally */
+            flex-wrap: wrap;             /* Wraps to next line if too long */
+            list-style: none;
+            padding: 0;
+            gap: 15px;                   /* Space between skills */
+        }
+
+        .skills-list li::before {
+            content: "• ";
+            color: var(--accent-color);
+        }
+
+        /* --- BOTTOM SECTION STYLES --- */
+        .bottom-section {
+            padding-top: 20px;
+        }
+
+        .job-tasks {
+            padding-left: 20px;
+        }
+
+        .job-tasks li {
+            margin-bottom: 8px;
+            font-size: var(--font-size-base);
+        }
+
+        .separator {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        /* --- TOOLTIP STYLES --- */
+
+        .tooltip {
+            position: relative;
+            cursor: help; /* Changes cursor to a question mark on hover */
+            border-bottom: 1px dashed var(--accent-color); /* Subtle underline to show it's interactive */
+        }
+
+        /* The actual "box" that pops up */
+        .tooltip::after {
+            content: attr(data-tooltip); /* Grabs text from the HTML attribute */
+            position: absolute;
+            bottom: 125%; /* Position it above the text */
+            left: 50%;
+            transform: translateX(-50%);
+            
+            /* Styling the popup */
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            
+            /* Hidden by default */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        /* Show the tooltip on hover */
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Optional: Small triangle/arrow pointing down */
+        .tooltip::before {
+            content: "";
+            position: absolute;
+            bottom: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -233,7 +339,7 @@
             <h1 class="header-name">Mohd Farhan Ramli</h1>
             <p class="header-title">Senior Software Developer (Adobe Commerce)</p>
             <p class="summary">
-                Senior Developer with over 8 years of experience in high-traffic e-commerce and government ecosystems. Specialist in Adobe Commerce (Magento 2) architecture, leading large-scale system migrations, enterprise-level API development for mobile platforms, and advanced analytics integration.
+                Senior Developer with over 8 years of experience in e-commerce and government platforms. Experienced in Magento 2 commerce platform and Laravel framework, creating APIs for mobile apps, analytics integration and moving data from one system to another.
             </p>
         </header>
 
@@ -250,8 +356,8 @@
                 <ul class="job-tasks">
                     <li>Key contributor to core system upgrades from Magento <b>2.4.4 to 2.4.7p5</b>, managing PHP 8.x compatibility testing and troubleshooting search engine configurations.</li>
                     <li>Developed automated "Ghost Order" verification systems to reconcile payment statuses with <b>iPay88 and Atome</b> gateways.</li>
-                    <li>Architected and implemented custom <b>Phone Number Login/Registration</b> workflows.</li>
-                    <li>Engineered cron-based automation to enable product pages 3 hours prior to live TV broadcast shows.</li>
+                    <li>Built a custom system for users to log in or register using their phone numbers.</li>
+                    <li>Set up automated tasks to make product pages live 3 hours before TV shows start.</li>
                 </ul>
             </div>
 
@@ -263,8 +369,8 @@
                 <div class="job-company">Sistem Televisyen Malaysia Berhad (Wowshop)</div>
                 <div class="job-location">Sri Pentas, Bandar Utama</div>
                 <ul class="job-tasks">
-                    <li>Developed the complete <b>Mobile App API suite</b>, including complex modules for Customer Authentication, Address CRUD, and multi-step Checkout logic.</li>
-                    <li>Integrated regional payment gateways (<b>iPay88, Atome, TNG eWallet</b>) into the mobile checkout API with automated shipping and postcode validation.</li>
+                    <li>Developed the full Mobile App API suite, handling user login, managing addresses, and supporting multi-step checkout.</li>
+                    <li>Connected local payment options (iPay88, Atome, TNG eWallet) to the mobile checkout, including automatic shipping and postcode checks.</li>
                 </ul>
             </div>
         </section>
@@ -302,9 +408,9 @@
                 <div class="job-company">WOWSHOP Sdn Bhd</div>
                 <div class="job-location">Bangsar, Kuala Lumpur</div>
                 <ul class="job-tasks">
-                    <li>Maintained Magento 2.3.5/2.4.4 Commerce systems and integrated preorder functionality with <b>Oracle ERP</b>.</li>
+                    <li>Maintained Magento 2.3.5/2.4.4 Commerce systems and develop preorder functionality.</li>
                     <li>Implemented TikTok Pixel and Google Tag Manager scripts to optimize marketing ad spend.</li>
-                    <li>Supported the migration from Magento Community to Commerce edition with zero downtime.</li>
+                    <li>Supported the migration from Magento Community to Commerce edition.</li>
                 </ul>
                 <div class="contact-person">Reference: Manu Krishna (Team Lead) - manukrishna688@gmail.com</div>
             </div>
@@ -336,14 +442,70 @@
     </div>
 </div>
 
+
+<div class="resume-page">
+
+<div class="resume-container">
+    <header class="top-section">
+        <h3 class="section-title">Programming Languages</h3>
+        <ul class="skills-list">
+            <li><span class="tooltip" data-tooltip="Magento 2, Laravel 7, Yii 2">PHP</span></li>
+            <li>Javascript</li>
+            <li>CSS</li>
+            <li>SQL</li>
+        </ul>
+    </header>
+
+    <!-- <hr class="separator"> -->
+
+    <header class="top-section">
+        <h3 class="section-title">Database</h3>
+        <ul class="skills-list">
+            <li><span class="tooltip" data-tooltip="Database">MySQL</span></li>
+            <li><span class="tooltip" data-tooltip="SQL Client">DBeaver</span></li>
+        </ul>
+    </header>
+
+    <header class="top-section">
+        <h3 class="section-title">API & Testing</h3>
+        <ul class="skills-list">
+            <li><span class="tooltip" data-tooltip="Magento 2 Based">REST API</li>
+            <li><span class="tooltip" data-tooltip="API testing">Postman</li>
+        </ul>
+    </header>
+
+    <header class="top-section">
+        <h3 class="section-title">Development Tools</h3>
+        <ul class="skills-list">
+            <li>VS Code</li>
+            <li>Git</li>
+            <li>Bitbucket</li>
+            <li>Docker</li>
+        </ul>
+    </header>
+
+    <!-- <main class="bottom-section">
+        <div class="job-block">
+            <ul class="job-tasks">
+                <li></li>
+                <li></li>
+                <li></b>.</li>
+            </ul>
+        </div>
+    </main> -->
+</div>
+
+</div>
+
+
 <div class="resume-page">
     <div class="left-col">
-        <h3 class="sidebar-title">Core Project Competencies</h3>
+        <h3 class="sidebar-title">Key Project Skills</h3>
         <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-            <li>• Full-Stack API Orchestration (30%)</li>
-            <li>• Mobile-First UX/UI (25%)</li>
-            <li>• QA & System Parity (25%)</li>
-            <li>• Security & Integrity (20%)</li>
+            <li>• Building and connecting APIs (30%)</li>
+            <li>• Designing user-friendly mobile experiences (25%)</li>
+            <li>• Testing and keeping systems consistent (25%)</li>
+            <li>• Keeping data and systems secure (20%)</li>
         </ul>
     </div>
 
@@ -363,11 +525,11 @@
                 <div class="job-company">Sistem Televisyen Malaysia Berhad (Wowshop)</div>
                 <div class="job-location">Glenmarie, Shah Alam</div>
                 <ul class="job-tasks">
-                    <li>Successfully architected and deployed a custom Phone Number Login & Registration system over a 3-month development cycle (83+ documented worklogs). This project involved transforming legacy Magento authentication flows into a modern, mobile-optimized experience, resulting in a seamless cross-channel identity management system</li>
-                    <li><b>Full-Stack API Orchestration (30%)</b>: Developed robust backend-to-frontend mappings for phone authentication, including Firemobile SMS gateway integration and custom OTP validation logic.</li>
-                    <li><b>Mobile-First UX/UI (25%)</b>: Architected a responsive registration journey with non-intrusive phone formatting, dynamic verification layouts, and optimized social login areas.</li>
-                    <li><b>QA & System Parity (25%)</b>: Managed full-lifecycle testing across local, staging, and mobile environments, utilizing Citrix and Ngrok to ensure 100% deployment stability.</li>
-                    <li><b>Security & Integrity (20%)</b>: Hardened the platform against bot traffic with reCAPTCHA v3 and implemented advanced session/cookie refresh logic to eliminate login friction.</li>
+                    <li>Built and launched a custom Phone Number Login & Registration system over 3 months (83+ worklogs). Updated the old Magento login flow into a smooth, mobile-friendly experience for easy cross-device use.</li>
+                    <li><strong>API Work (30%)</strong>: Connected backend and frontend for phone login, including SMS gateway integration and custom OTP checks.</li>
+                    <li><strong>Mobile-Friendly Design (25%)</strong>: Created a responsive registration process with simple phone formatting, dynamic verification screens, and easy social login options.</li>
+                    <li><strong>Testing & Consistency (25%)</strong>: Ran full tests on local, staging, and mobile setups to make sure everything worked perfectly.</li>
+                    <li><strong>Security (20%)</strong>: Protected the platform from bots with reCAPTCHA v3 and added smart session/cookie handling to make logins smooth and safe.</li>
                 </ul>
             </div>
             
