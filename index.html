@@ -569,6 +569,858 @@
     </div>
 </div>
 
+<!--
+=======================================================
+  HOW TO USE THIS FILE
+=======================================================
+  Copy everything below and paste it into your index.html
+  JUST BEFORE the closing </body> tag.
+
+  EDITING GUIDE:
+  - Look for comments like "✏️ EDIT:" to find editable zones.
+  - Each project card on Page 6 is clearly separated.
+  - Page 7 follows the same two-column layout as the rest of your resume.
+=======================================================
+-->
+
+<!-- =============================================
+     EXTRA STYLES — paste into your <style> block
+     OR keep here; browsers handle duplicate <style> tags fine
+     ============================================= -->
+<style>
+  /* ── PAGE 6: LANDSCAPE ─────────────────────────── */
+  .resume-page-landscape {
+    position: relative;
+    width: 296.5mm;          /* A4 rotated */
+    height: 210mm;
+    margin: 20px auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    page-break-after: always;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Top accent banner */
+  .p6-banner {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 60%, #16a085 100%);
+    padding: 18px 40px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .p6-banner h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .p6-banner span {
+    font-size: 0.85rem;
+    color: #16a085;
+    letter-spacing: 1px;
+  }
+
+  /* Card grid — 3 columns by default, shrinks automatically */
+  .p6-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ✏️ EDIT: change "3" to "2" or "4" to adjust columns */
+    gap: 20px;
+    padding: 22px 40px 20px;
+    flex: 1;
+  }
+
+  .p6-card {
+    border: 1.5px solid #e8ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+
+  /* Colour-coded top bar — one per card */
+  .p6-card-bar {
+    height: 5px;
+  }
+
+  /* ✏️ EDIT: Swap these hex colours for each card's bar */
+  .bar-teal   { background: #16a085; }
+  .bar-navy   { background: #2c3e50; }
+  .bar-amber  { background: #e67e22; }
+  .bar-rose   { background: #c0392b; }
+  .bar-sky    { background: #2980b9; }
+  .bar-purple { background: #8e44ad; }
+
+  .p6-card-body {
+    padding: 14px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .p6-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .p6-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+
+  .p6-card-date {
+    font-size: 0.72rem;
+    color: #999;
+    white-space: nowrap;
+    margin-left: 8px;
+    padding-top: 2px;
+  }
+
+  .p6-card-company {
+    font-size: 0.78rem;
+    color: #16a085;
+    font-weight: 600;
+  }
+
+  .p6-card-desc {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  /* Tag chips at the bottom of each card */
+  .p6-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .p6-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: #f0f4f8;
+    color: #2c3e50;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── PAGE 7: PORTRAIT (matches existing layout) ── */
+  /* Reuses .resume-page, .left-col, .right-col, .job-block etc. from your existing CSS */
+
+  /* Extra: two-tone highlight box for project metrics */
+  .p7-highlight-box {
+    background: linear-gradient(135deg, #f8fffe 0%, #e8f8f5 100%);
+    border-left: 4px solid #16a085;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.82rem;
+    color: #2c3e50;
+  }
+
+  .p7-highlight-box strong {
+    display: block;
+    font-size: 0.88rem;
+    color: #16a085;
+    margin-bottom: 4px;
+  }
+
+  /* Inline stat pills */
+  .p7-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .p7-stat {
+    background: #2c3e50;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  @media print {
+    .resume-page-landscape {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+</style>
+
+
+<!-- =============================================
+     PAGE 6 — LANDSCAPE PROJECT SHOWCASE
+     ============================================= -->
+<div class="resume-page-landscape">
+
+  <!-- ✏️ EDIT: Change the banner title and subtitle -->
+  <div class="p6-banner">
+    <h2>Project Highlights</h2>
+    <span>Selected work across e-commerce, government &amp; personal projects</span>
+  </div>
+
+  <div class="p6-grid">
+
+    <!-- ─── CARD 1 ──────────────────────────────────
+         ✏️ EDIT: Change title, date, company, description, and tags below
+         ✏️ EDIT: Change "bar-teal" to any bar colour class (see list above)
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-teal"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">Phone Number Login &amp; Registration</div>
+          <div class="p6-card-date">11/2025 – 02/2026</div>
+        </div>
+        <div class="p6-card-company">Wowshop · Sistem TV Malaysia</div>
+        <div class="p6-card-desc">
+          Replaced traditional email login with a phone-first flow. Built OTP verification via SMS gateway,
+          reCAPTCHA v3 bot protection, JWT session handling, and a responsive multi-step UI for
+          seamless mobile cross-device logins. 83+ work logs across 3 months.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">Magento 2</span>
+          <span class="p6-tag">PHP 8.3</span>
+          <span class="p6-tag">REST API</span>
+          <span class="p6-tag">reCAPTCHA v3</span>
+          <span class="p6-tag">JWT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 2 ──────────────────────────────────
+         ✏️ EDIT BELOW
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-navy"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">Mobile App API Suite</div>
+          <div class="p6-card-date">01/2024 – 02/2025</div>
+        </div>
+        <div class="p6-card-company">Wowshop · Sistem TV Malaysia</div>
+        <div class="p6-card-desc">
+          Full REST API suite powering the Wowshop mobile app — user auth with JWT, address management,
+          multi-step checkout, local payment gateways (iPay88, Atome, TNG eWallet),
+          shipping postcode validation, product reviews (Base64 image upload), and Q&amp;A endpoints.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">REST API</span>
+          <span class="p6-tag">iPay88</span>
+          <span class="p6-tag">Atome</span>
+          <span class="p6-tag">TNG eWallet</span>
+          <span class="p6-tag">Magento 2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 3 ──────────────────────────────────
+         ✏️ EDIT BELOW
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-amber"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">GA4 &amp; GTM Migration</div>
+          <div class="p6-card-date">2024</div>
+        </div>
+        <div class="p6-card-company">Wowshop · Sistem TV Malaysia</div>
+        <div class="p6-card-desc">
+          Led analytics migration from Universal Analytics to GA4. Implemented custom DataLayer pushes
+          for social logins (Apple / Facebook / Google), product engagement events,
+          and TikTok Pixel. Reduced untracked ad spend by improving event coverage.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">GA4</span>
+          <span class="p6-tag">GTM</span>
+          <span class="p6-tag">DataLayer</span>
+          <span class="p6-tag">TikTok Pixel</span>
+          <span class="p6-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 4 ──────────────────────────────────
+         ✏️ EDIT BELOW
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-rose"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">Ghost Order Reconciliation System</div>
+          <div class="p6-card-date">2025</div>
+        </div>
+        <div class="p6-card-company">Wowshop · Sistem TV Malaysia</div>
+        <div class="p6-card-desc">
+          Automated system to detect and reconcile "ghost" orders where payment gateway
+          (iPay88 / Atome) confirmed payment but order status remained pending.
+          Cron-driven verification with fallback retry logic and alerting.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">PHP</span>
+          <span class="p6-tag">Cron</span>
+          <span class="p6-tag">iPay88</span>
+          <span class="p6-tag">Atome</span>
+          <span class="p6-tag">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 5 ──────────────────────────────────
+         ✏️ EDIT BELOW
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-sky"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">VIMS — Vaccine Distribution System</div>
+          <div class="p6-card-date">05/2020 – 06/2021</div>
+        </div>
+        <div class="p6-card-company">MyEG Services Berhad</div>
+        <div class="p6-card-desc">
+          Built during the COVID-19 pandemic using Laravel 7. Managed vaccine inventory,
+          distribution tracking, and reporting across government-linked facilities.
+          Full unit test coverage; delivered under strict government deadlines.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">Laravel 7</span>
+          <span class="p6-tag">PHP</span>
+          <span class="p6-tag">Unit Testing</span>
+          <span class="p6-tag">MySQL</span>
+          <span class="p6-tag">Government</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 6 ──────────────────────────────────
+         ✏️ EDIT BELOW (or duplicate this card for more)
+    ─────────────────────────────────────────────── -->
+    <div class="p6-card">
+      <div class="p6-card-bar bar-purple"></div>
+      <div class="p6-card-body">
+        <div class="p6-card-header">
+          <div class="p6-card-title">MEDCAST 2.0 — Government ETL Platform</div>
+          <div class="p6-card-date">03/2016 – 05/2020</div>
+        </div>
+        <div class="p6-card-company">Unijaya Resources Sdn Bhd</div>
+        <div class="p6-card-desc">
+          Lead Developer for a medical data broadcasting and ETL migration system
+          for a government-linked agency. Managed the full SDLC: requirements,
+          architecture, development, and deployment on Linux/Nginx infrastructure.
+        </div>
+        <div class="p6-tags">
+          <span class="p6-tag">PHP</span>
+          <span class="p6-tag">ETL</span>
+          <span class="p6-tag">MySQL</span>
+          <span class="p6-tag">Linux</span>
+          <span class="p6-tag">Nginx</span>
+          <span class="p6-tag">SDLC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ADD MORE CARDS ────────────────────────────
+         To add a 7th, 8th card etc, just COPY one card block above
+         (from <div class="p6-card"> to its closing </div>)
+         and paste it here. The grid handles the rest.
+         Remember to change the bar colour class!
+    ─────────────────────────────────────────────── -->
+
+  </div><!-- end .p6-grid -->
+</div><!-- end PAGE 6 -->
+
+
+<!-- =============================================
+     PAGE 7 — PORTRAIT PROJECT DETAIL
+     (same two-column layout as rest of resume)
+     ============================================= -->
+<div class="resume-page">
+  <div class="left-col">
+
+    <!-- ✏️ EDIT: Sidebar heading and bullet list -->
+    <h3 class="sidebar-title">Project Breakdown</h3>
+    <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+      <li>• Architecture Design</li>
+      <li>• API Development</li>
+      <li>• Database Modelling</li>
+      <li>• Testing &amp; QA</li>
+      <li>• Deployment</li>
+    </ul>
+
+    <!-- ✏️ EDIT: Second sidebar section — add a tech stack, timeline, or anything you like -->
+    <h3 class="sidebar-title">Tech Used</h3>
+    <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+      <li>• PHP 8.3</li>
+      <li>• Magento 2.4.7</li>
+      <li>• MySQL</li>
+      <li>• Docker</li>
+      <li>• Postman</li>
+      <li>• Git / Bitbucket</li>
+    </ul>
+
+    <!-- ✏️ EDIT: Optional third sidebar block, e.g. outcome/impact -->
+    <h3 class="sidebar-title">Outcome</h3>
+    <ul style="list-style: none; font-size: 0.9rem; line-height: 2; opacity: 0.85;">
+      <li>• Launched on time</li>
+      <li>• Zero critical bugs</li>
+      <li>• Positive QA sign-off</li>
+    </ul>
+
+  </div><!-- end .left-col -->
+
+  <div class="right-col">
+    <section>
+
+      <!-- ─── PROJECT HEADER ────────────────────────
+           ✏️ EDIT: Project title, date, company, location
+      ────────────────────────────────────────────── -->
+      <div class="job-block">
+        <div class="job-header">
+          <span>Project Title Goes Here</span>          <!-- ✏️ EDIT -->
+          <span>MM/YYYY – MM/YYYY</span>                <!-- ✏️ EDIT -->
+        </div>
+        <div class="job-company">Company Name</div>     <!-- ✏️ EDIT -->
+        <div class="job-location">City, State</div>     <!-- ✏️ EDIT -->
+      </div>
+
+      <!-- ─── OVERVIEW ─────────────────────────────
+           ✏️ EDIT: 2–3 sentence project overview
+      ────────────────────────────────────────────── -->
+      <div class="p7-highlight-box">
+        <strong>Overview</strong>
+        Write a short overview of the project here. What was the goal? What problem did it solve?
+        Who was the end user or client? Keep it to 2–3 sentences for easy scanning.
+        <!-- ✏️ EDIT the text above -->
+      </div>
+
+      <!-- ─── QUICK STATS ───────────────────────────
+           ✏️ EDIT: Add/remove stat pills as needed
+      ────────────────────────────────────────────── -->
+      <div class="p7-stats">
+        <span class="p7-stat">🗓 3 months</span>           <!-- ✏️ EDIT -->
+        <span class="p7-stat">👤 Solo Dev</span>           <!-- ✏️ EDIT -->
+        <span class="p7-stat">✅ Delivered on time</span>  <!-- ✏️ EDIT -->
+        <span class="p7-stat">🔗 REST API</span>           <!-- ✏️ EDIT -->
+      </div>
+
+      <!-- ─── WHAT I DID ────────────────────────────
+           ✏️ EDIT: Bullet list of your contributions
+      ────────────────────────────────────────────── -->
+      <h2 class="section-title">What I Did</h2>
+      <div class="job-block">
+        <ul class="job-tasks">
+          <li>Describe your first major contribution here — keep it action-verb first (Built, Designed, Integrated…).</li> <!-- ✏️ EDIT -->
+          <li>Describe your second contribution here.</li>  <!-- ✏️ EDIT -->
+          <li>Describe your third contribution here, including any measurable impact if possible.</li>  <!-- ✏️ EDIT -->
+          <li>Add more <code>&lt;li&gt;</code> items as needed — or delete any you don't need.</li>  <!-- ✏️ EDIT -->
+        </ul>
+      </div>
+
+      <!-- ─── CHALLENGES & SOLUTIONS ────────────────
+           ✏️ EDIT: Describe one key technical challenge
+      ────────────────────────────────────────────── -->
+      <h2 class="section-title">Key Challenge</h2>
+      <div class="job-block">
+        <div class="p7-highlight-box">
+          <strong>Challenge</strong>
+          Briefly describe a technical obstacle you faced (e.g. "Magento's default session handling
+          conflicted with phone-based login because…"). <!-- ✏️ EDIT -->
+        </div>
+        <ul class="job-tasks" style="margin-top: 8px;">
+          <li><strong>Solution:</strong> Explain how you solved it — tools, approach, result. <!-- ✏️ EDIT --></li>
+          <li><strong>Lesson learned:</strong> One-line takeaway that shows your growth. <!-- ✏️ EDIT --></li>
+        </ul>
+      </div>
+
+      <!-- ─── REFERENCE (optional) ──────────────────
+           ✏️ EDIT: Add a contact person or delete this block entirely
+      ────────────────────────────────────────────── -->
+      <div class="contact-person">
+        Reference: Name (Role) — email@example.com <!-- ✏️ EDIT or delete this whole block -->
+      </div>
+
+    </section>
+  </div><!-- end .right-col -->
+</div><!-- end PAGE 7 -->
+
+<!--
+=======================================================
+  PAGE 8 — GIT DEPLOYMENT CHEATSHEET
+  Paste this into your index.html just before </body>
+=======================================================
+-->
+
+<style>
+  /* ── PAGE 8 STYLES ──────────────────────────────── */
+  .resume-page-p8 {
+    position: relative;
+    width: 210mm;
+    height: 296.5mm;
+    margin: 20px auto;
+    background: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    page-break-after: always;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* ── TOP BANNER ─────────────────────────────────── */
+  .p8-banner {
+    background: #2c3e50;
+    padding: 16px 36px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .p8-banner-icon {
+    width: 34px;
+    height: 34px;
+    background: #16a085;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .p8-banner-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  .p8-banner-text p {
+    font-size: 0.75rem;
+    color: #16a085;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+  }
+
+  /* ── CONTEXT NOTE (top grey bar) ───────────────── */
+  .p8-context {
+    background: #eaf0f6;
+    border-left: 4px solid #16a085;
+    margin: 16px 36px 0;
+    padding: 9px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.78rem;
+    color: #34495e;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  /* ── STEPS CONTAINER ────────────────────────────── */
+  .p8-steps {
+    padding: 12px 36px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── SINGLE STEP ────────────────────────────────── */
+  .p8-step {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0 12px;
+    align-items: start;
+  }
+
+  /* Numbered circle */
+  .p8-step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #2c3e50;
+    color: #16a085;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .p8-step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  /* Description text above code block */
+  .p8-step-desc {
+    font-size: 0.8rem;
+    color: #4a5568;
+    line-height: 1.5;
+  }
+
+  /* ── CODE BLOCK ─────────────────────────────────── */
+  .p8-code {
+    background: #1e2a38;
+    border-radius: 6px;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 3px solid #16a085;
+  }
+
+  .p8-code-prompt {
+    color: #16a085;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .p8-code code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #e2f0fb;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+
+  /* git keywords coloured */
+  .p8-code code .kw-git   { color: #f6c90e; }   /* git command */
+  .p8-code code .kw-cmd   { color: #79c0ff; }   /* subcommand */
+  .p8-code code .kw-flag  { color: #ffa657; }   /* flags / options */
+  .p8-code code .kw-path  { color: #a5d6ff; }   /* paths / branch names */
+  .p8-code code .kw-ref   { color: #d2a8ff; }   /* remote:branch refs */
+
+  /* ── DIVIDER BETWEEN STEP GROUPS ────────────────── */
+  .p8-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2px 0;
+  }
+  .p8-divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px dashed #cbd5e0;
+  }
+  .p8-divider span {
+    font-size: 0.68rem;
+    color: #a0aec0;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ── FOOTER NOTE ────────────────────────────────── */
+  .p8-footer-note {
+    background: #2c3e50;
+    color: #a8c6d6;
+    font-size: 0.75rem;
+    padding: 10px 36px;
+    line-height: 1.6;
+    flex-shrink: 0;
+    border-top: 3px solid #16a085;
+  }
+
+  .p8-footer-note strong {
+    color: #16a085;
+  }
+
+  @media print {
+    .resume-page-p8 { margin: 0; box-shadow: none; }
+  }
+</style>
+
+
+<!-- =============================================
+     PAGE 8 — GIT DEPLOYMENT CHEATSHEET
+     ============================================= -->
+<div class="resume-page-p8">
+
+  <!-- BANNER -->
+  <div class="p8-banner">
+    <div class="p8-banner-icon">⎇</div>
+    <div class="p8-banner-text">
+      <!-- ✏️ EDIT: title and subtitle -->
+      <h2>Git Deployment Workflow</h2>
+      <p>Deploy to staging without disrupting local development — using git worktree</p>
+    </div>
+  </div>
+
+  <!-- CONTEXT NOTE -->
+  <!-- ✏️ EDIT: change this summary note as needed -->
+  <div class="p8-context">
+    <strong>Scenario:</strong> Deploy ke <em>staging-adobe</em> (remote: <em>origin-adobe</em>) tanpa kacau branch semasa yang sedang digunakan.
+    Kaedah ini guna <code style="background:#d4e5f0;padding:1px 5px;border-radius:3px;font-size:0.75rem;">git worktree</code>
+    untuk create folder berasingan — boleh deploy dan continue kerja serentak.
+  </div>
+
+  <!-- STEPS -->
+  <div class="p8-steps">
+
+    <!-- ── STEP 1 ──────────────────────────────────
+         ✏️ EDIT: desc text and code command
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">1</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Tukar ke branch <strong>staging</strong> — pastikan bukan branch yang tengah digunakan (origin-adobe/staging).
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">checkout</span> <span class="kw-path">staging</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 2 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">2</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Create folder <strong>project-deploy</strong> menggunakan branch <strong>staging-adobe</strong> via git worktree.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">worktree add</span> <span class="kw-path">../project-deploy staging-adobe</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 3 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">3</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Masuk ke folder <strong>project-deploy</strong> — boleh open new tab terminal untuk senang.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-cmd">cd</span> <span class="kw-flag">..</span> <span class="kw-path">&amp;&amp; cd project-deploy</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 4 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">4</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Fetch semua remote branches dari dalam folder project-deploy.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">fetch</span> <span class="kw-flag">--all</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 5 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">5</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Merge branch <strong>staging</strong> (dari Bitbucket) ke dalam <strong>staging-adobe</strong> di folder project-deploy.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">merge</span> <span class="kw-path">staging</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STEP 6 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">6</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Push ke <strong>origin-adobe</strong> untuk start deployment. Lepas push, boleh tinggalkan tab ini dan sambung kerja di branch lain.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">push</span> <span class="kw-path">origin-adobe</span> <span class="kw-ref">staging-adobe:staging</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="p8-divider">
+      <hr/>
+      <span>Selepas deploy selesai</span>
+      <hr/>
+    </div>
+
+    <!-- ── STEP 7 ──────────────────────────────────
+         ✏️ EDIT below
+    ──────────────────────────────────────────────── -->
+    <div class="p8-step">
+      <div class="p8-step-num">7</div>
+      <div class="p8-step-content">
+        <div class="p8-step-desc">
+          Buang folder <strong>project-deploy</strong> untuk free up disk space selepas deployment selesai.
+        </div>
+        <div class="p8-code">
+          <span class="p8-code-prompt">$</span>
+          <code><span class="kw-git">git</span> <span class="kw-cmd">worktree remove</span> <span class="kw-path">../project-deploy</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ADD MORE STEPS ───────────────────────────
+         To add a new step, copy any .p8-step block above,
+         paste it here, update the number, desc and code.
+    ──────────────────────────────────────────────── -->
+
+  </div><!-- end .p8-steps -->
+
+  <!-- FOOTER NOTE -->
+  <!-- ✏️ EDIT: update this note or remove the whole block -->
+  <div class="p8-footer-note">
+    <strong>💡 Why worktree?</strong>
+    Git worktree membenarkan dua branch checkout serentak dalam dua folder berbeza — tanpa perlu
+    <code>git stash</code> atau tukar branch. Selamat untuk deploy sambil kerja on feature branch yang berbeza.
+  </div>
+
+</div><!-- end PAGE 8 -->
 
 
 </body>
